@@ -1,0 +1,6 @@
+[book]
+authors = ["Cryptec"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Bidder"
