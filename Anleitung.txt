@@ -1,0 +1,37 @@
+Install Golang
+
+// clone goshimmer repository and build go file
+$ git clone -b develop-wasp https://github.com/iotaledger/goshimmer/
+$ cd goshimmer/
+$ go build
+
+$ cd ..
+
+###PATH Einstellen
+
+// clone wasp repository
+$ git clone -b develop https://github.com/iotaledger/wasp/
+
+// install wasp executables
+$ cd wasp/
+$ go install ./...  // should install wasp, wasp-cli, wasp-cluster ###Nochmal durchgehen
+
+// start cluster
+$ wasp-cluster init my-cluster // should create "my-cluster" directory with necessary files in it
+$ cd my-cluster/
+$ wasp-cluster start
+
+// initialize wallet, set utxo, confirm address and balance
+$ mkdir <some_dir> && cd <some_dir>
+$ wasp-cli init
+$ wasp-cli set utxodb true
+$ cat wasp-cli.json // should show utxo true
+
+// add funds to balance
+$ wasp-cli balance // should show nothing
+$ wasp-cli address
+$ wasp-cli request-funds
+$ wasp-cli balance // should so a non-zero balance
+
+// deploy chain
+$ wasp-cli chain deploy --chain=<chain_name> --description="chain description"
